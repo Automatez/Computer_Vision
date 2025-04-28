@@ -4,15 +4,6 @@
 # INPUT - the results of an instance segmentation model with a reference object
 # OUTPUT - the length and width of the objects in your units, and the length and width lines on the image
 
-# 1. set your API_key (manufacturing) as an environment variable (replace the xxx first)
-#    >$env:ROBOFLOW_API_KEY="xxx"
-# 2. Open Docker
-# 3. navigate to this directory:  C:\Users\zacra\Documents\python\training\roboflow\inference\workflow_size
-# 4. start the venv >.\size_venv\Scripts\activate.ps1
-# 5. start the inference server before using workflow blocks or inference in Roboflow
-#    >inference server start
-
-
 import cv2
 import os
 import inference
@@ -24,9 +15,6 @@ from math import radians, sin, acos
 # Sample image (replace with your own)
 img = cv2.imread("spores.jpg")
 
-#Manual version Load the sample JSON file
-# with open("img_segm.json", "r") as f:
-#     data = json.load(f)
 
 #Get the length of the reference object from the user, units are irrelevant as long as they are consistent
 
@@ -66,34 +54,6 @@ if reference_detection_count == 0:
     raise ValueError(f"No reference object of class '{class_of_reference}' found in the image.")  
 elif reference_detection_count > 1:
     raise ValueError(f"Multiple reference objects of class '{class_of_reference}' found in the image. Please ensure only one is present.")
-
-#breakpoint()
-
-
-
-#MANUAL FOR INITIAL TESTING
-# # Get the first prediction with class "spores"
-# predictions = data[0]["predictions"]["predictions"]
-# spores_predictions = [p for p in predictions if p["class"] == "spores"]
-
-# # Get the first set of points
-# first_spore_points = spores_predictions[0]["points"]
-
-# # Convert to numpy array in the required shape (N, 1, 2)
-# points_np = np.array([[p["x"], p["y"]] for p in first_spore_points], dtype=np.int32).reshape(-1, 1, 2)
-
-# #print(points_np.shape)  # Just to verify shape is correct
-
-
-
-##Example of points from the contour in the format almost ready for the cv function
-# points = np.array([
-#     [100, 200],
-#     [120, 280],
-#     [180, 250],
-#     [160, 180]
-# ], dtype=np.int32)
-
 
 def object_length_from_contour(contour_points):
     """
