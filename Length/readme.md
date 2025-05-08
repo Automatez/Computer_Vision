@@ -1,10 +1,9 @@
 
 <p align="right">
-  <img src="https://github.com/user-attachments/assets/2f61f3f6-730d-43d5-8d44-14ad85574b48"
+  <img src="https://github.com/user-attachments/assets/c13f4bd3-06af-4707-a587-8e756ffd6e39"
        alt="Automatez logo"
        width="100">
 </p>
-
 
 This is code to find a length of a detected object based on longest distance between two points in an image segmentation.
 It also utilizes a reference object in the image to provide the actual length (rather than pixel length).
