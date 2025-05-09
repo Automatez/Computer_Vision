@@ -1,11 +1,8 @@
 
-# 1. cd to C:\Users\zacra\Documents\python\training\roboflow\inference
-# 2. Open Docker
-# 3. start the venv >.\workflow_venv\Scripts\activate.ps1
-# 3.5 set your API_key as an environment variable (replace the xxx first)
-# > $env:ROBOFLOW_API_KEY="xxx"
-# 4. start the inference server before working on the workflow blocks in Roboflow
-#  >inference server start
+
+# Open Docker
+# set your API_key as an environment variable
+# start the inference server before working on the workflow blocks in Roboflow
 
 
 import os
@@ -116,16 +113,6 @@ def capture_dynamic_zone(detections, boxes_to_detect, y_coords_group, gridcolor)
         quad = quad.reshape((-1, 1, 2))
         cv.polylines(displayImg, [quad], isClosed=True, color=gridcolor, thickness=10)
         
-        #Test line, note that 0,0 is top left of image
-        # testpts = [[2400, 900], [2400,1200]]
-        # pts = np.array(testpts, np.int32)
-        # pts = pts.reshape((-1, 1, 2))
-        # cv.polylines(img, [pts], isClosed=True, color=(255, 0, 255), thickness=10)
-
-        # Optionally, you can also put the detection ID near the outline:
-        # Get the top-left point of the quadrilateral for the text position
-        # text_pos = tuple(quad[0][0])
-        # cv.putText(img, detection["detection_id"], text_pos, cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
 
 capture_dynamic_zone(detections_grid, grid, all_y_coords_grid, (0,0,255))
 
@@ -210,12 +197,6 @@ for itemrow in grid:
 
     # Search for the pattern in the string
     match = re.search(pattern, result_str)
-
-    # for troubleshooting
-    # if match:
-    #     print("Found:", match.group(0))
-    # else:
-    #     print("No match found:", result_str)
 
     # Define the text to write, update item num in the row, and set the position (bottom-left corner of the text)
     text = match.group(0)
