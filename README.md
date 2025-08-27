@@ -35,4 +35,5 @@ This repository is where I drop my quick hits as I find ways to **wake up images
 - **Different way to get object length**
 - **Idea for restocking shelves**
 - **Instant inventory check on small parts**
+- **Vehicle time on a bridge and count as crossing**
 
