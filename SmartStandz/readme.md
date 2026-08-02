@@ -84,8 +84,8 @@ You will need:
 Clone the repository:
 
 ```bash
-git clone https://github.com/Automatez/smartstandz_ws.git
-cd smartstandz_ws
+git clone https://github.com/Automatez/smartstandz.git
+cd smartstandz
 ```
 
 Create a virtual environment:
